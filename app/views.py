@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from app.forms import *
 from django.http import HttpResponse
-from django.core.mail import send_mail
+
 # Create your views here.
 def registration(request):
     ufo=UserForm()
@@ -24,11 +24,7 @@ def registration(request):
             PFO.save()
             
 
-            send_mail('Regarding User registration',
-                      "As you are successfully registered into manikanta's application",
-                      'gundlurimanikanta142@gmail.com',
-                      [USO.email],
-                      fail_silently=False)
+            
 
             return HttpResponse('Registration is Successfully completed')
         else:
